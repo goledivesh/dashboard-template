@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     $('.close').click(function () {
         $('.modal').removeClass('show fade');
+        $('body').css('overflow', 'auto');
     })
 
     $(function () {
@@ -49,12 +50,16 @@ $(document).ready(function () {
             if ($('.post-list-view').hasClass('active')) {
                 $('.db-content-side-block').addClass('fixed');
                 $('.db-content-side-block-wrap').addClass('list-view-active');
-                $('.db-content-post-block').css('margin-right', '0');
+                $('.db-content-post-block').css({
+                    width: '100%'
+                });
                 $('.chat-list-header p').html('Start Conversation' + '<span class="chat-present pull-right d-inline-block m-t-5 online"></span>');
             } else {
                 $('.db-content-side-block').removeClass('fixed');
                 $('.db-content-side-block-wrap').removeClass('list-view-active');
-                $('.db-content-post-block').css('margin-right', '15px');
+                $('.db-content-post-block').css({
+                    width: '69%'
+                });
                 $('.chat-list-header p').html('Conversation');
             }
         });
@@ -135,7 +140,7 @@ $(document).ready(function () {
     $(function () {
         $('.select-category-input').on('click', function (e) {
             e.stopPropagation();
-            $('.category-select').show();
+            $('.category-select').toggle();
         })
         $('.category-select li').click(function () {
             var option_val = $(this).text();
@@ -146,6 +151,7 @@ $(document).ready(function () {
     $(function () {
         $('.add-new-post-btn').on('click', function () {
             $('#add_new_modal').addClass('show fade');
+            $('body').css('overflow', 'hidden');
         });
     });
 
@@ -179,6 +185,19 @@ $(document).ready(function () {
     });
     /*--- Filter Chat List End ---*/
 
+    /*--- Global Search ---*/
+    $(function () {
+        $('.global-search-btn').on('click', function () {
+            $(this).toggleClass('active');
+
+            if ($(this).hasClass('active')) {
+                $('.global-search-block').addClass('open');
+            } else {
+                $('.global-search-block').removeClass('open');
+            }
+        })
+    })
+    /*--- Global Search End ---*/
 
 
 

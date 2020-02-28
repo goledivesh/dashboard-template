@@ -311,16 +311,16 @@ button:disabled {
 }
 
 .card-header {
-    padding: 30px 40px 15px;
+    padding: 30px 25px 15px;
     border-radius: 5px 5px 0 0;
 }
 
 .card-content {
-    padding: 15px 40px 30px;
+    padding: 15px 25px 30px;
 }
 
 .card-comment {
-    padding: 30px 40px;
+    padding: 30px 25px;
     border-top: 2px solid #e2e5ee;
 }
 
@@ -391,7 +391,8 @@ button:disabled {
 
 .nav-block-3 .navbar-menu .menu-item:hover:not(.header-user-det)::after,
 .nav-block-2 .navbar-menu .menu-item.active::after,
-.nav-block-2 .navbar-menu .menu-item:hover::after {
+.nav-block-2 .navbar-menu .menu-item:hover::after,
+.navbar-menu .menu-item.global-search-btn.active::after {
     background: #cb7b98;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
@@ -745,10 +746,7 @@ button:disabled {
 }
 
 .db-content-body-wrap > div.db-content-post-block {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 68%;
-    flex: 1 1 68%;
-    margin-right: 15px;
+    width: 69%;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
 }
@@ -758,11 +756,7 @@ button:disabled {
 }
 
 .db-content-body-wrap > div.db-content-side-block {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 28%;
-    flex: 1 1 28%;
-    width: 28%;
-    margin-left: 15px;
+    width: 29%;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
 }
@@ -1447,6 +1441,10 @@ h6 {
     font-size: 15px;
 }
 
+.add-post-form .form-control.select-category-input {
+    cursor: pointer;
+}
+
 .add-post-form textarea.form-control {
     font-family: 'Roboto', sans-serif;
 }
@@ -1535,3 +1533,50 @@ h6 {
 }
 
 /*---- Add New Post Modal End ----*/
+
+/*---- Global Search Block ----*/
+.global-search-btn.active .fa {
+    color: #fff !important;
+    position: relative;
+}
+
+.global-search-block {
+    position: fixed;
+    width: 307px;
+    top: 79px;
+    right: 0;
+    height: calc(100% - 79px);
+    background: #fff;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    overflow-y: auto;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+.global-search-block.open {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.global-search-header {
+    padding: 20px;
+    background: var(--sidebar-bg);
+}
+
+.global-search-header h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.global-search-header .global-search-input {
+    width: 100%;
+}
+
+/*---- Global Search Block End ----*/
