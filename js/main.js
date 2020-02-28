@@ -167,6 +167,18 @@ $(document).ready(function () {
         });
     });
 
+    /*--- Filter Chat List ---*/
+    $(function () {
+        var $section = $('.chat-list-view')
+        $('.chat-search-input').on('keyup', function () {
+            var value = $(this).val().toLowerCase();
+            $('.chat-list-view li').filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    /*--- Filter Chat List End ---*/
+
 
 
 
