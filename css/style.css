@@ -370,7 +370,7 @@ button:disabled {
     text-decoration: none;
     display: block;
     color: #8b8d9a;
-    padding: 30px 0;
+    padding: 31px 0;
 }
 
 .nav-block-3 .navbar-menu .menu-item:not(.header-user-det)::after,
@@ -923,11 +923,17 @@ button:disabled {
     overflow: hidden;
 }
 
-.post-author-det > span {
+.post-author-det > div {
     color: #636369;
 }
 
-.post-author-det > span:not(:last-of-type) {
+.post-author-det span.post-date,
+.comment-date {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.post-author-det > div {
     margin-right: 15px;
     font-size: 18px;
 }
@@ -1010,6 +1016,11 @@ h6 {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+}
+
+.author-name,
+.comment-author-name {
+    margin-bottom: 3px;
 }
 
 .author-name > a,

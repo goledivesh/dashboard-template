@@ -13,14 +13,13 @@ $(document).ready(function () {
 
     $(function () {
         $('.side-block-carousel').owlCarousel({
-            loop: true,
+            loop: false,
             margin: 10,
-            autoplay: true,
             dots: true,
             nav: false,
             responsiveClass: true,
             responsive: {
-                1000: {
+                600: {
                     items: 1,
                 }
             }
@@ -144,6 +143,9 @@ $(document).ready(function () {
         })
         $('.category-select li').click(function () {
             var option_val = $(this).text();
+            if($(this).text().length > 0){
+                $('.post-submit').removeAttr('disabled', false);
+            }
             $('.select-category-input').val(option_val);
         });
     });
@@ -160,6 +162,7 @@ $(document).ready(function () {
 
             var empty = false;
             $('.add-post-form .form-control').each(function () {
+                console.log($(this).val());
                 if ($(this).val().length == 0) {
                     empty = true;
                 }
@@ -172,7 +175,7 @@ $(document).ready(function () {
 
         });
     });
-
+    
     /*--- Filter Chat List ---*/
     $(function () {
         var $section = $('.chat-list-view')
@@ -199,6 +202,11 @@ $(document).ready(function () {
     })
     /*--- Global Search End ---*/
 
+    if ($(window).innerWidth() < 1500) {
+        $('.db-sidebar-wrap').addClass('collapsed');
+        $('.db-content-wrap').addClass('full-view');
+        $('.db-collapse-wrap').addClass('active');
+    }
 
 
 
